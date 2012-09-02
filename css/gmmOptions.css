@@ -1,0 +1,116 @@
+#gmmOptions {
+}
+
+/* ##### http://www.emanueleferonato.com/2007/08/22/create-a-lightbox-effect-only-with-css-no-javascript-needed/ START ##### */
+.gmmOptionsPanelOverlayC {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	z-index:1001;
+	-moz-opacity: 0.5;
+	opacity:.50;
+	filter: alpha(opacity=50);
+}
+.gmmOptionsPanelContC {
+	display: none;
+	position: absolute;
+	top: 20%;
+	left: 20%;
+	width: 60%;
+	height: 60%;
+	padding: 25px;
+	border: 1px solid #000;
+	background-color: #fff;
+	z-index:1002;
+	overflow: auto;
+}
+/* ##### http://www.emanueleferonato.com/2007/08/22/create-a-lightbox-effect-only-with-css-no-javascript-needed/ END ##### */
+
+.gmmOptionsPanelOverlayCclose {}
+.gmmOptionsPanelOverlayCcloseButton {
+  background-color: #4D90FE;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#4D90FE),to(#4787ED));
+  background-image: -webkit-linear-gradient(top,#4D90FE,#4787ED);
+  background-image: -moz-linear-gradient(top,#4D90FE,#4787ED);
+  background-image: -ms-linear-gradient(top,#4D90FE,#4787ED);
+  background-image: -o-linear-gradient(top,#4D90FE,#4787ED);
+  background-image: linear-gradient(top,#4D90FE,#4787ED);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#4d90fe',EndColorStr='#4787ed');
+  border: 0px solid #3079ED;
+  color             : white !important;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  cursor: default !important;
+  display: inline-block;
+  font-weight: bold;
+  height: 29px;
+  line-height: 29px;
+  min-width: 54px;
+  padding: 0 8px;
+  text-align: center;
+  text-decoration: none !important;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+.gmmOptionsPanelOverlayCcloseButton a {
+color           : #fff;
+text-decoration : none;
+font            : bold 12px Arial,Helvetica,sans-serif;
+}
+
+.gmmOptionsPanelOverlayCcloseX {
+  height       : 15px;
+  width        : 15px;
+	-moz-opacity : 0.8;
+	opacity      :.8;
+	filter       : alpha(opacity=80);
+  position     : absolute;
+  right        : 7px;
+  top          : 7px;
+
+  background: url(http://ssl.gstatic.com/ui/v1/dialog/close-x.png) no-repeat center;
+  cursor: pointer;
+
+
+}
+
+  h1 {font-size:156%}
+  h1 img {margin:1px 5px 0 1px; vertical-align:middle; border:0px; }
+  h2 {border-top:1px solid #9cc2ef; background-color:#ebeff9; padding:3px 5px; font-size:100%;}
+  h3 {border-top:1px solid #9cc2ef; background-color:#ebeff9; padding:3px 5px; font-size:100%;}
+/*
+  .options_wrapper {height:250px; position:relative; p__osition:absolute; v__isibility: hidden;}
+  .options_menu_wrapper {width:100%; height:50px; f__loat:left;}
+  .options_content_wrapper {left:160; top:50; width:500px; p__osition:relative; }
+  .options_content {width:100%; position:absolute; p__osition:relative; top:15px; l__eft:160; visibility: hidden;}
+*/
+  .options_content_img {width:400px; border:0px;}
+  .input.filter {width:10px;}  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

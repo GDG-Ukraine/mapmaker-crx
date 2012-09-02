@@ -1,0 +1,144 @@
+{
+// ########## Required ##########
+    "name"            : "GMM+",
+    "version"         : "0.0.47",
+    "manifest_version": 2,
+      
+// ########## Recommended ##########
+    "description"     : "Додаток для того щоб швидше правити карти mapmaker",
+    "icons"           : { 
+                      "128" : "icons/icon128.png",
+                      "96"  : "icons/icon96.png",
+                      "64"  : "icons/icon64.png",
+                      "48"  : "icons/icon48.png",
+                      "32"  : "icons/icon32.png",
+                      "24"  : "icons/icon24.png",
+                      "19"  : "icons/icon19.png", // http://code.google.com/chrome/extensions/browserAction.html
+                      "16"  : "icons/icon16.png"  // http://code.google.com/chrome/extensions/manifest.html#icons
+              },
+    // "default_locale"  : "en",
+    "permissions"     : [
+                      "background",
+                      // "bookmarks", 
+                      "contextMenus",   // параметри не записані в http://code.google.com/intl/ru-RU/chrome/apps/docs/developers_guide.html
+                      // "clipboardRead",
+                      // "clipboardWrite",
+                      "cookies",
+                      "chrome://favicon/http://www.google.com/mapmaker/mapfiles/favicon.ico",
+                      // ERROR LINE "experimental",           // на хромі v17 видає помилку
+                      "history",        // параметри не записані в http://code.google.com/intl/ru-RU/chrome/apps/docs/developers_guide.html
+                      "http://www.google.com/mapmaker/*",     // Дозволити додатку звертатись по вказаній адресі
+                      "https://www.google.com/mapmaker/*",    // Дозволити додатку звертатись по вказаній адресі
+                      // "*://*.google.com/*",                // Дозволити додатку звертатись по вказаній адресі  (потім закоментувати цей рядок коли все будн працювати корректно)
+                      // "*://*.*",                           // Дозволити додатку звертатись по вказаній адресі  (потім ВИДАЛИТИ цей рядок коли все будн працювати корректно)
+                      // "geolocation",
+                      "notifications",
+                      "tabs",                                 // Дозволити додатку працювати з вкладками
+                      "unlimitedStorage",
+                      "webRequest"                            // http://code.google.com/chrome/extensions/webRequest.html
+                      ],
+    
+ 
+
+    
+
+    
+/* ЦЕЙ ПУНКТ ЗАКОМЕНТОВАНО!
+"web_content" : {
+              "enabled" :  true,
+              "origin"  :  "http://google.com",
+              "paths"   :  [ "mapmaker" ]
+              },
+*/
+
+
+// ##########  ОБЕРИ ОДНЕ (або нічого) ##########
+    // ПРАЦЮЄМО ПО ЦІЙ МОДЕЛІ!
+    "page_action":    {
+                      "default_icon"  : "icons/icon19.png",     // optional UA:"Іконка яка відображатиметься в рядку брааузера. Можна тільки 19х19px"; EN:"Browser action icons can be up to 19 pixels wide and high"
+                      "default_title" : "GMM+",              // optional; shown in tooltip
+                      "default_popup" : "gmmPopup.html"        // optional
+                      },
+
+     
+/* ЦЕЙ ПУНКТ ЗАКОМЕНТОВАНО!
+"browser_action"  : {
+                  "default_title"   : "GMM+",          // Назва кнопки
+                  "default_icon"    : "icons/icon48.png", // Задаємо іконку яка буде відображатись на панелі інструментів
+                  "popup"           : "gmmPopup.html"    // Дія по натисканню на іконку, в нашому випадку відкриється вспливаюче вікно (popup.html)
+                  },
+*/
+/* ЦЕЙ ПУНКТ ЗАКОМЕНТОВАНО!
+"app"   : {
+        "launch"  : {
+                  "container" : "tab",
+                  "web_url"   : "http://www.google.com/mapmaker"
+                  },
+        "urls"    : [
+                  "*://mapmaker.google.com/",
+                  "*://www.google.com/mapmaker"
+                  ]
+        },
+*/
+
+
+/* ЦЕЙ ПУНКТ ЗАКОМЕНТОВАНО!
+"theme": {...}, // Тільки для ШКІР браузера
+*/
+// ##########  ОБЕРИ ОДНЕ (або нічого) END ##########
+
+
+
+
+  
+  
+// ########## Add any of these that you need ##########
+
+    "background_page"             : "gmmBackground.html",                       // сторінка що 1 раз вантажиться в бекграунді. Колишній "background.html"
+    // "chrome_url_overrides"     : {...},
+    "content_scripts"             : [                                           // колишній "contentscript_pageAction.js"
+                                  {
+                                    "matches" : [                               // вказати ті сторінки на який ДОЗВОЛЕНО запуск екстеншена
+                                      "http://google.com/mapmaker*",
+                                      "https://google.com/mapmaker*",
+                                      "http://www.google.com/mapmaker*",
+                                      "https://www.google.com/mapmaker*"
+                                      //"http://mapmaker.google.com*",
+                                      //"https://mapmaker.google.com*",
+                                      //"http://www.mapmaker.google.com*",
+                                      //"https://www.mapmaker.google.com*"
+                                    ],
+                                    "exclude_matches" : [                         // вказати ті сторінки на який ЗАБОРОНЕНО запуск екстеншена
+                                      "*://www.google.com/mapmaker/pulse*",
+                                      "*://google.com/mapmaker/pulse*"
+                                    ],
+                                    "js" : ["gmmContentscript.js"],
+                                    "run_at" : "document_idle",
+                                    "all_frames" : false
+                                  }
+                                  ],
+    // "content_security_policy"  : "policyString",
+    // "content_security_policy"  : "script-src 'self'",                     // 0017 zakomentyly BUG
+    /* "content_security_policy"  : "default-src 'none';                      // # Block everything, then whitelist from there.
+                                     script-src 'self' https://ssl.google-analytics.com; // для того щоб працював gmmGoogleAnalytics.js ver-2
+                                     script-src 'self';                       // # Accept JS  from the extension's package.
+                                     style-src 'self';                        // # Accept CSS from the extension's package.
+                                     connect-src http://google.com/mapmaker;  // # Allow XHR connections over HTTP to Google Maps APIs.
+                                     connect-src https://google.com/mapmaker; // # Allow XHR connections over HTTPS to Google Maps APIs.
+                                     img-src http://google.com/mapmaker;      // # Allow images from GMM to load over HTTP.
+                                     img-src https://google.com/mapmaker;     // # Allow images from GMM to load over HTTPS.
+                                     object-src 'self'; 
+                                     default-src 'self' 'unsafe-inline';",
+    */
+    // "file_browser_handlers"    : [...],
+    // "homepage_url"             : "http://path/to/homepage",
+    // "incognito"                : "spanning" or "split",
+    // "key"                      : "publicKey",
+    // "minimum_chrome_version"   : "versionString",
+    // "nacl_modules"             : [...],
+    // "offline_enabled"          : true,
+    // "omnibox"                  : { "keyword": "aString" },
+    "options_page"                : "gmmOptions.html"                          // сторінка налаштувань, колишня "options.html"
+    // "plugins"                  : [...],
+    // "update_url"               : "http://path/to/updateInfo.xml"
+}

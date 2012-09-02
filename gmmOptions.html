@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <title>Налаштування</title>
+  <meta charset="utf-8">
+  
+  <script type="application/javascript">
+    var ThisFileName    = 'gmmOptions'; // назва цього файла.
+    var ThisFileNameExt = 'html';       // тип цього файла. 
+  </script>
+  
+  <script src="js/localStorageCheckValue.js" type="text/javascript"></script>
+  
+  <style>
+    body {margin:10px; font:84% Arial, sans-serif;}
+    h1 {font-size:156%}
+    h1 img {margin:1px 5px 0 1px; vertical-align:middle; border:0px; }
+    h2 {border-top:1px solid #9cc2ef; background-color:#ebeff9; padding:3px 5px; font-size:100%;}
+    h3 {border-top:1px solid #9cc2ef; background-color:#ebeff9; padding:3px 5px; font-size:100%;}
+    /* label { background-color: #C9D873; color: black; border:1px solid silver; padding:4px 3px 1px 0;} */
+    .button {background-color:#dff4ff;border:1px solid #c2e1ef;color:#336699;}
+    .button:hover {background-color:#E6EFC2;border:1px solid #C6D880;color:#529214;}
+  </style>
+
+  </head>
+  <body onload="getData();">
+  <div>
+    <h1><img src="icons/icon128.png">Сторінка налаштування додатку</h1>
+    <h2>Налаштування</h2>
+      <div style="width:250px;">
+        Налаштування тепер в контенті <a href="http://www.google.com/mapmaker">google.com/mapmaker</a>
+      </div>  
+    
+    
+    <h2>ФАЙЛИ</h2>
+    <p>
+      Власне це список файлів які використовуються в проекті (щоб випадково щось не знести).<br />
+      Усі інші використовуються (чи використовувались) для відладки або є тимчасовими.<br />
+      https://gist.github.com/41fb91b342cb1e292199  <br />
+      http://code.google.com/p/mapmaker-crx/
+    </p>
+    <ul>
+      <li><a href="" target="blank"><b>manifest.json</b></a> - маніфест, який в кінці треба буде вичистити від зайвого :)</li>
+      <li><a href="contentscript_gmm.js" target="blank"><b>contentscript_gmm.js</b></a> - скрипт який займається обробкою HTML. Викликається з "manifest.json". При завантаженні сторінки відпрацьовує. Перевірено в 0016. Я думаю що виклики функцій треба спробувати робити саме з нього. </li>
+      <li><a href="options_gmm.html" target="blank"><b>options_gmm.html</b></a>  - (<b>цей файл</b>) Налаштування. тут описуємо як все має працювати і що звідки брати</li>
+      <li><a href="popup_gmm.html" target="blank"><b>popup_gmm.html</b></a>
+      - (<b>цей файл</b>) скорочені налаштування, файл викликається при кліку на іконку</li>
+      <li><a href="js/localStorageCheckValue.js" target="blank"><b>localStorageCheckValue.js</b></a> - для "options_gmm.html" та "popup_gmm.html" він використовується як чекер галочок
+      <li></li>
+      <li><a href="background_gmm.html" target="blank"><b>background_gmm.html</b></a>  - Викликається з "manifest.json". Виконується тільки 1 раз при старте браузера чи додатку</li>
+      <li><a href="background_gmm.js" target="blank"><b>background_gmm.js</b></a> - Викликається з "background_gmm.html". В разі наявності в УРЛі параметра "mapmaker" - Показує логотипчик в рядку УРЛа.</li>
+      <li><a href="credits.txt" target="blank"><b>credits.txt</b></a> - описуємо тут копірайти, і що де брали.</li>
+    </ul>
+  
+    <h2>МЕТОДИКА</h2>
+    <p>
+      БАГАТО читаємо на тему<br />
+      http://code.google.com/chrome/extensions/samples.html<br />
+      http://code.google.com/apis/ajax/playground/<br />
+      заходимо на сторінку http://www.google.com/mapmaker<br />
+      <br />
+      Клікаємо на дорогу
+      <br />
+    </p>
+    <textarea  rows="7" cols="100">
+<a href="javascript:void(0);" class="goog-menuitem" name="cvt-trail_1_1006" cad="src:linkm-cvt-trail;type:edit" ct="l1" oiw="miw" onclick="this.blur();return modifyItem("1_1006", true, false, 13);" role="menuitem" style="-webkit-user-select: none; " id=":4p">
+<div class="goog-menuitem-content" style="-webkit-user-select: none; ">Convert to Trail</div>
+</a>
+    </textarea>
+    <br />
+    <textarea  rows="7" cols="100">контент</textarea>
+  </div>
+  
+  
+
+
+  
+</body>
+</html>
