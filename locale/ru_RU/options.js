@@ -1,9 +1,9 @@
 RegisterLang();
 lang_ru_RU = 
 {
-  lngLanguage: "Язык", // "Language"
+  lngLanguage: "РЇР·С‹Рє", // "Language"
   //...
-  lngExit: "Выход" // "Exit"
+  lngExit: "Р’С‹С…РѕРґ" // "Exit"
 }
 
 function RegisterLang()
@@ -12,6 +12,6 @@ function RegisterLang()
 
   if(ctrl != null)
   {
-    ctrl.add(createOption("Русский", "ru_RU"));
+    ctrl.add(createOption("Р СѓСЃСЃРєРёР№", "ru_RU"));
   }
 }
